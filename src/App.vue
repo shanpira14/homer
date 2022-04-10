@@ -18,7 +18,10 @@
             </a>
             <i v-if="config.icon" :class="config.icon"></i>
           </div>
-          <div class="dashboard-title">
+          <div
+            class="dashboard-title"
+            :class="{ 'no-logo': !config.icon || !config.logo }"
+          >
             <span class="headline">{{ config.subtitle }}</span>
             <h1>{{ config.title }}</h1>
           </div>
@@ -61,7 +64,7 @@
           @network-status-update="offline = $event"
         />
 
-        <GetStarted v-if="loaded && !services" />
+        <GetStarted v-if="configurationNeeded" />
 
         <div v-if="!offline">
           <!-- Optional messages -->
@@ -164,6 +167,7 @@ export default {
   data: function () {
     return {
       loaded: false,
+      configNotFound: false,
       config: null,
       services: null,
       offline: false,
@@ -172,6 +176,11 @@ export default {
       isDark: null,
       showMenu: false,
     };
+  },
+  computed: {
+    configurationNeeded: function () {
+      return (this.loaded && !this.services) || this.configNotFound;
+    },
   },
   created: async function () {
     this.buildDashboard();
@@ -222,6 +231,11 @@ export default {
           // This allows to work with authentication proxies.
           window.location.href = response.url;
           return;
+        }
+
+        if (response.status == 404) {
+          this.configNotFound = true;
+          return {};
         }
 
         if (!response.ok) {
