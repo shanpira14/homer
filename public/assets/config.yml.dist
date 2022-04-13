@@ -1,84 +1,234 @@
 ---
-# Homepage configuration
-# See https://fontawesome.com/v5/search for icons options
-
-title: "Demo dashboard"
-subtitle: "Homer"
+title: "Homepira Dashboard"
+subtitle: "Powered by Homer"
 logo: "logo.png"
-# icon: "fas fa-skull-crossbones" # Optional icon
 
-header: true
-footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>' # set false if you want to hide it.
+header: false
+footer: false #'<p>Theme made with <span class="has-text-danger">❤️</span> by <a href="https://github.com/WalkxCode">Walkx</a></p>' # Set false if you want to hide it.
 
-# Optional theme customization
+stylesheet:
+  - "assets/custom.css"
+
+tags: 
+  Favourite: &Favourite
+    - tag: "Favourite"
+      tagstyle: "is-medium is-primary"
+  CI: &CI
+    - tag: "CI"
+      tagstyle: "is-medium is-success"
+  Apps: &Apps
+    - tag: "App"
+      tagstyle: "is-medium is-info" 
+
+columns: "3" # You can change this to any number that is a factor of 12: (1, 2, 3, 4, 6, 12)
 theme: default
 colors:
   light:
-    highlight-primary: "#3367d6"
-    highlight-secondary: "#4285f4"
-    highlight-hover: "#5a95f5"
-    background: "#f5f5f5"
-    card-background: "#ffffff"
-    text: "#363636"
-    text-header: "#ffffff"
-    text-title: "#303030"
-    text-subtitle: "#424242"
-    card-shadow: rgba(0, 0, 0, 0.1)
+    highlight-primary: "#fff5f2"
+    highlight-secondary: "#fff5f2"
+    highlight-hover: "#bebebe"
+    background: "#12152B"
+    card-background: "#fff5f2"
+    text: "#ffffff"
+    text-header: "#fafafa"
+    text-title: "#000000"
+    text-subtitle: "#111111"
+    card-shadow: rgba(0, 0, 0, 0.5)
     link: "#3273dc"
-    link-hover: "#363636"
+    link-hover: "#2e4053"
   dark:
-    highlight-primary: "#3367d6"
-    highlight-secondary: "#4285f4"
-    highlight-hover: "#5a95f5"
-    background: "#131313"
-    card-background: "#2b2b2b"
+    highlight-primary: "#181C3A"
+    highlight-secondary: "#181C3A"
+    highlight-hover: "#1F2347"
+    background: "#12152B"
+    card-background: "#181C3A"
     text: "#eaeaea"
-    text-header: "#ffffff"
+    text-header: "#7C71DD"
     text-title: "#fafafa"
-    text-subtitle: "#f5f5f5"
-    card-shadow: rgba(0, 0, 0, 0.4)
-    link: "#3273dc"
-    link-hover: "#ffdd57"
+    text-subtitle: "#8B8D9C"
+    card-shadow: rgba(0, 0, 0, 0.5)
+    link: "#c1c1c1"
+    link-hover: "#fafafa"
 
-# Optional message
-message:
-  #url: https://b4bz.io
-  style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
-  title: "Demo !"
-  icon: "fa fa-grin"
-  content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
-
-# Optional navbar
-# links: [] # Allows for navbar (dark mode, layout, and search) without any links
-links:
-  - name: "Contribute"
-    icon: "fab fa-github"
-    url: "https://github.com/bastienwirtz/homer"
-    target: "_blank" # optional html a tag target attribute
-  - name: "Wiki"
-    icon: "fas fa-book"
-    url: "https://www.wikipedia.org/"
-  # this will link to a second homer page that will load config from additional-page.yml and keep default config values as in config.yml file
-  # see url field and assets/additional-page.yml.dist used in this example:
-  - name: "another page!"
-    icon: "fas fa-file-alt"
-    url: "#additional-page" 
-
-# Services
-# First level array represent a group.
-# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
 services:
-  - name: "Applications"
-    icon: "fas fa-cloud"
+  - name: "//Work"
+    icon: "fas fa-briefcase"
     items:
-      - name: "Awesome app"
-        logo: "assets/tools/sample.png"
-        subtitle: "Bookmark example"
-        tag: "app"
-        url: "https://www.reddit.com/r/selfhosted/"
+      - name: "Knox"
+        logo: "assets/tools/secret-server.png"
+        subtitle: "Password Management"
+        <<: *Favourite
+        url: "https://knox.nsitmsp.com/SecretServer/Login.aspx?ReturnUrl=%2fSecretServer%2fDashboard.aspx#%7B%22tId%22:444,%22fId%22:%22-1%22,%22s%22:%22%22,%22inSub%22:false,%22tptId%22:null,%22status%22:%22Active%22%7D"
+        target: "_blank"
+      - name: "N-Central"
+        logo: "assets/tools/n-able.png"
+        subtitle: "Remote Management"
+        <<: *Apps
+        url: "https://central.datalink.com/"
+        target: "_blank"
+      - name: "ScienceLogic"
+        logo: "assets/tools/sciencelogic.png"
+        subtitle: "sl1-shared01"
+        <<: *Apps
+        url: "https://sl1-shared01.nsitmsp.com/"
+        target: "_blank"
+      - name: "ScienceLogic"
+        logo: "assets/tools/sciencelogic.png"
+        subtitle: "sl1-shared02"
+        <<: *Apps
+        url: "https://sl1-shared02.nsitmsp.com/"
+        target: "_blank"
+      - name: "ScienceLogic"
+        logo: "assets/tools/sciencelogic.png"
+        subtitle: "sl1-shared03"
+        <<: *Apps
+        url: "https://sl1-shared03.nsitmsp.com/"
+        target: "_blank"
+      - name: "ServiceNow"
+        logo: "assets/tools/servicenow.png"
+        subtitle: "Ticketing System"
+        <<: *Apps
+        url: "https://services-cdct.insight.com/"
         target: "_blank" # optional html a tag target attribute
-      - name: "Another one"
-        logo: "assets/tools/sample2.png"
-        subtitle: "Another application"
-        tag: "app"
-        url: "#"
+
+  - name: "//Management"
+    icon: "fas fa-door-open"
+    items:
+      - name: "Asus"
+        logo: "assets/tools/asus.png"
+        subtitle: "Network Management"
+        <<: *Apps
+        url: "http://asus.homepira.link"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Nginx Proxy Manager"
+        logo: "assets/tools/npm.png"
+        subtitle: "Domain & SSL Management"
+        <<: *Apps
+        url: "http://npm.homepira.link:81"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Portainer"
+        logo: "assets/tools/portainer.png"
+        subtitle: "Docker Manager"
+        <<: *Apps
+        url: "https://dsm.homepira.link:9443"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Rancher"
+        logo: "assets/tools/rancher.png"
+        subtitle: "Kubernetes Cluster Orchestrator"
+        <<: *Apps
+        url: "https://rancher.homepira.com"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Synology NAS"
+        logo: "assets/tools/dsm.png"
+        subtitle: "Synology DSM"
+        <<: *Favourite
+        url: "https://dsm-homepira.duckdns.org"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Unifi Controller"
+        logo: "assets/tools/unifi.png"
+        subtitle: "Network Management"
+        <<: *Favourite
+        url: "https://unifi-homepira.duckdns.org"
+        target: "_blank" # optional html a tag target attribute
+
+  - name: "//Media"
+    icon: "fas fa-play"
+    items:
+      - name: "Jellyfin"
+        logo: "assets/tools/jellyfin.png"
+        subtitle: "Jellyfin Media Server"
+        <<: *Apps
+        url: "http://dsm.homepira.link:8096"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Lidarr"
+        logo: "assets/tools/lidarr.png"
+        subtitle: "Music Collection Usenet"
+        <<: *Apps
+        url: "http://dsm.homepira.link:8686"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Plex"
+        logo: "assets/tools/plex.png"
+        subtitle: "Plex Media Server"
+        <<: *Apps
+        url: "http://dsm.homepira.link:32400"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Radarr"
+        logo: "assets/tools/radarr.png"
+        subtitle: "Movies Collection Usenet"
+        <<: *Apps
+        url: "http://dsm.homepira.link:7878"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Sonarr"
+        logo: "assets/tools/sonarr.png"
+        subtitle: "TV Series Collection Usenet"
+        <<: *Apps
+        url: "http://dsm.homepira.link:8989"
+        target: "_blank" # optional html a tag target attribute
+
+
+  - name: "//Downloader"
+    icon: "fas fa-download"
+    items:
+      - name: "Deluge"
+        logo: "assets/tools/deluge.png"
+        subtitle: "Torrent Downloader"
+        <<: *Apps
+        url: "http://dsm.homepira.link:8112"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Jackett"
+        logo: "assets/tools/jackett.png"
+        subtitle: "Indexer"
+        <<: *Apps
+        url: "http://dsm.homepira.link:9117"
+        target: "_blank" # optional html a tag target attribute
+
+  - name: "//Monitoring"
+    icon: "fas fa-tachometer-alt"
+    items:
+      - name: "Grafana"
+        logo: "assets/tools/grafana.png"
+        subtitle: "Graphical Dashboard Monitoring"
+        <<: *Favourite
+        url: "http://dsm.homepira.link:3000"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Librespeed"
+        logo: "assets/tools/libre.png"
+        subtitle: "Self hosted speedtest"
+        <<: *Apps
+        url: "http://dsm.homepira.link:49157"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Pi-Hole"
+        logo: "assets/tools/pi-hole.png"
+        subtitle: "Network Wide Adblocker"
+        <<: *Apps
+        url: "http://pihole.homepira.link/admin/"
+        type: "PiHole"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Prometheus"
+        logo: "assets/tools/prometheus.png"
+        subtitle: "Grafana Data Scraper"
+        <<: *Apps
+        url: "http://dsm.homepira.link:9090/targets"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Uptime Kuma"
+        logo: "assets/tools/kuma.png"
+        subtitle: "Self-hosted monitoring"
+        <<: *Apps
+        url: "http://dsm.homepira.link:3001"
+        target: "_blank" # optional html a tag target attribute
+
+  - name: "//Home"
+    icon: "fas fa-home"
+    items:
+      - name: "Home Assistant"
+        logo: "assets/tools/hassio.png"
+        subtitle: "Home Automation"
+        <<: *Favourite
+        url: "https://homepira.duckdns.org:8123"
+        target: "_blank" # optional html a tag target attribute
+      - name: "Surveillance Station"
+        logo: "assets/tools/surveillance.png"
+        subtitle: "Security Cameras"
+        <<: *Apps
+        url: "https://dsm.homepira.link:5001/webman/3rdparty/SurveillanceStation/"
+        target: "_blank" # optional html a tag target attribute
