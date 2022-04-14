@@ -122,7 +122,7 @@ services:
         logo: "assets/tools/dsm.png"
         subtitle: "Synology DSM"
         <<: *Favourite
-        url: "https://dsm-homepira.duckdns.org"
+        url: "https://dsm.homepira.link"
         target: "_blank" # optional html a tag target attribute
       - name: "Unifi Controller"
         logo: "assets/tools/unifi.png"
