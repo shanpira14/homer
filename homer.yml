@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homer
+  template:
+    metadata:
+      labels:
+        app: homer
+    spec:
+      containers:
+      - image: shanpira14/homer:<TAG>
+        imagePullPolicy: Always
+        name: homer
+        volumeMounts:
+        - mountPath: /www/assets
+          name: homer
+      volumes:
+      - name: homer
+        persistentVolumeClaim:
+          claimName: homer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homer
+spec:
+  selector:
+    app: homer
+  ports:
+    - name: ''
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
